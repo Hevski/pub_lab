@@ -14,11 +14,13 @@ class Pub
 
   def sold_drink(drink, customer)
     if customer.age >= 18 && customer.wallet >= drink.price
-    @drinks.delete(drink)
-    @till += drink.price
-    customer.buys_drink(drink)
+      while customer.drunkness <= 4
+        @drinks.delete(drink)
+        @till += drink.price
+        customer.buys_drink(drink)
+      end
+    end
   end
-end
 
 
 

@@ -8,13 +8,14 @@ require_relative("../Pub")
 class TestPub < MiniTest::Test
 
   def setup
-    @beer = Drink.new("Punk IPA", 3)
-    @wine = Drink.new("Malbec", 4)
-    @cocktail = Drink.new("Margarita", 5)
+    @beer = Drink.new("Punk IPA", 3, 2)
+    @wine = Drink.new("Malbec", 4, 2)
+    @cocktail = Drink.new("Margarita", 5, 2)
     @pub = Pub.new("James's Joint",50, [@beer, @wine, @cocktail])
     @customer = Customer.new("Heather", 20, 21)
     @customer2 = Customer.new("James", 5, 16)
     @customer3 = Customer.new("Sponge Bob", 1, 18)
+    @customer4 = Customer.new("Patrick", 18, 34)
   end
 
   def test_pub_has_name
@@ -54,6 +55,17 @@ class TestPub < MiniTest::Test
      assert_equal(3, @pub.number_of_drinks)
      assert_equal(1, @customer3.wallet)
    end
+
+   def test_till_does_not_money_from_customer__not_enough_money
+     @pub.sold_drink(@wine, @customer4)
+     assert_equal(62, @pub.till)
+     assert_equal(4, @pub.number_of_drinks)
+     assert_equal(18, @customer4.wallet)
+   end
+
+
+
+
 
 
 

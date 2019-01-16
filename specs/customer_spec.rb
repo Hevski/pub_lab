@@ -33,5 +33,7 @@ class TestCustomer < MiniTest::Test
     assert_equal(2, @customer.drunkness)
   end
 
+  
+
 
 end

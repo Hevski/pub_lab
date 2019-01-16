@@ -9,7 +9,6 @@ class Customer
     @drunkness = 0
   end
 
-
   def buys_drink(drink)
     @wallet -= drink.price
     level_of_drunkness(drink)
@@ -17,7 +16,6 @@ class Customer
 
   def level_of_drunkness(drink)
     @drunkness += drink.alcohol_level
-
   end
 
 

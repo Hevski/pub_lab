@@ -9,9 +9,6 @@ class Customer
     @drunkness = 0
   end
 
-  def has_money
-    @wallet
-  end
 
   def buys_drink(drink)
     @wallet -= drink.price

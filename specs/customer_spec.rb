@@ -19,7 +19,7 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_customer_has_money
-    assert_equal(20, @customer.has_money)
+    assert_equal(20, @customer.wallet)
   end
 
   def test_customer_buys_drink_money_reduces
@@ -33,7 +33,7 @@ class TestCustomer < MiniTest::Test
     assert_equal(2, @customer.drunkness)
   end
 
-  
+
 
 
 end

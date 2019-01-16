@@ -37,9 +37,9 @@ class TestPub < MiniTest::Test
 
   def test_till_gets_money_from_customer__old_enough
     @pub.sold_drink(@wine, @customer)
-    assert_equal(54, @pub.till)
+    assert_equal(58, @pub.till)
     assert_equal(2, @pub.number_of_drinks)
-    assert_equal(16, @customer.wallet)
+    assert_equal(12, @customer.wallet)
   end
 
    def test_till_does_not_get_money_from_customer__not_old_enough
@@ -56,11 +56,11 @@ class TestPub < MiniTest::Test
      assert_equal(1, @customer3.wallet)
    end
 
-   def test_till_does_not_money_from_customer__not_enough_money
+   def test_customer_is_too_drunk_to_serve
      @pub.sold_drink(@wine, @customer4)
-     assert_equal(62, @pub.till)
-     assert_equal(4, @pub.number_of_drinks)
-     assert_equal(18, @customer4.wallet)
+     assert_equal(58, @pub.till)
+     assert_equal(2, @pub.number_of_drinks)
+     assert_equal(10, @customer4.wallet)
    end
 
 

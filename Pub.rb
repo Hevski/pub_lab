@@ -1,3 +1,4 @@
+
 class Pub
 
   attr_accessor :name, :till, :drinks
@@ -14,7 +15,7 @@ class Pub
 
   def sold_drink(drink, customer)
     if customer.age >= 18 && customer.wallet >= drink.price
-      while customer.drunkness <= 4
+      while customer.drunkness < 4
         @drinks.delete(drink)
         @till += drink.price
         customer.buys_drink(drink)
